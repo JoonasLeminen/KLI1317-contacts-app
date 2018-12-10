@@ -1,24 +1,20 @@
-<h1>
-  Welcome to Contacts application
-</h1>
-
-
-<div class="mat-app-background basic-container">
-  <toolbar-multirow-example>loading</toolbar-multirow-example>
-</div>
-
 <mat-sidenav-container class="app-sidenav-container">
-  <mat-sidenav>
+  <mat-sidenav #sidenav [mode]="mode.value" [opened]="false" class="app-sidenav">
     <p>Sidenav content</p>
     <div>
       <a href="https://github.com/JoonasLeminen/KLI1317-contacts-app" class="app-sidenav-content">App in github</a>
     </div>
+    <div>
+      <br>
+      <img src="../assets/img/baseline_menu_black_18dp.png" class="app-sidenav-content">
+    </div>
   </mat-sidenav>
-  <mat-sidenav-content>
-    </mat-sidenav-content>
-  <app-toolbar></app-toolbar>
-  <app-contact-list></app-contact-list>
+  <mat-sidenav-content class="app-sidenav-content">
+    <app-toolbar (menuClick)="sidenav.toggle()"></app-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>
+
 
 
 
